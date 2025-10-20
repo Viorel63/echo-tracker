@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+{% extends 'base.html' %}
+
+{% block title %}Create Issue{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Create New Issue</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+            {{ form.title.label(class="form-label") }}
+            {{ form.title(class="form-control") }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.description.label(class="form-label") }}
+            {{ form.description(class="form-control", rows="4") }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.status.label(class="form-label") }}
+            {{ form.status(class="form-select") }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.priority.label(class="form-label") }}
+            {{ form.priority(class="form-select") }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.assignee_id.label(class="form-label") }}
+            {{ form.assignee_id(class="form-control") }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
+    </form>
+</div>
+{% endblock %}
